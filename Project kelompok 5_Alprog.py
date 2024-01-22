@@ -87,7 +87,7 @@ def jadwal3():
     print("- SORE\n")
     
 
-print("=========================== DENAH ============================\n")
+print("=======================DENAH=================================================\n")
 
 denah = """
 Alamat : Jalan Muhammad Faiz No.28 
@@ -112,8 +112,13 @@ print(denah)
 
 totaltiket = 0
 totalharga = 0
+regularoneday = 0
+regularmultiday = 0
+viponeday = 0
+vipmultiday = 0
+backstageoneday = 0
+backstagemultiday = 0
 
-nama = input("Nama Pembeli : ")
 while True:
     x = 0
     y = 0
@@ -129,7 +134,6 @@ while True:
     print("3. KELUAR\n")
     a = input("PILIH JENIS TICKET YANG INGIN DIBELI : ")
     if a == "1" :
-        keterangan = "REGULER"
         print("1. MULTI DAY PASS")
         print("2. ONE DAY PASS")
         b = input("SILAHKAN PILIH JENIS REGULER TICKET : ")
@@ -183,10 +187,10 @@ while True:
             else:
                 print("PILIHAN TIDAK TERSEDIA")
                 continue
+            regularmultiday += e    
 
                     
         elif b == "2" :
-            keterangan = "VIP"
             print("1. DAY 1")
             print("2. DAY 2")
             print("3. DAY 3")    
@@ -220,6 +224,8 @@ while True:
             else:
                 print("PILIHAN TIDAK TERSEDIA")
                 continue
+            regularoneday += e
+            
         else:
             print("PILIHAN TIDAK TERSEDIA")
             continue
@@ -282,7 +288,8 @@ while True:
                 else:
                     print("PILIHAN TIDAK TERSEDIA")
                     continue
-                        
+                vipmultiday += e
+
             elif c == "2" :
                 print("1. DAY 1")
                 print("2. DAY 2")
@@ -317,9 +324,11 @@ while True:
                 else:
                     print("PILIHAN TIDAK TERSEDIA")
                     continue
+                viponeday += e
             else:
                 print("PILIHAN TIDAK TERSEDIA")
                 continue
+            
 
         if b == "2" :
             print("1. MULTI DAY PASS")
@@ -376,6 +385,7 @@ while True:
                 else:
                     print("PILIHAN TIDAK TERSEDIA")
                     continue
+                backstagemultiday += e
                         
             elif c == "2" :
                 print("1. DAY 1")
@@ -412,9 +422,11 @@ while True:
                 else:
                     print("PILIHAN TIDAK TERSEDIA")
                     continue
+                backstageoneday += e
             else:
                 print("PILIHAN TIDAK TERSEDIA")
                 continue
+
 
     elif a == "3" :
         break
@@ -433,13 +445,25 @@ while True:
     if lanjut == "Y":
         continue
     elif lanjut == "N":
+        nama = input("Nama Pembeli : ")
+        email = input("Email Pembeli : ")
 
-        print("\n===== TICKET INVOICE =====")
+
+        print("\n=========== TICKET INVOICE ===========")
         print("Pembelian atas Nama : ",nama)
-        print("Jenis Tiket yang dipilih :",keterangan)
+        print("Email :",email)
+        print("======== Jumlah tiket Reguler ========")
+        print("Multi Day Pass :",regularmultiday)
+        print("One Day Pass : ",regularoneday)
+        print("========== Jumlah tiket VIP ==========")
+        print("VIP Multiday Pass : ",vipmultiday)
+        print("VIP One Day Pass : ",viponeday)
+        print("VIP + BACKSTAGE Multi Day Pass :",backstagemultiday)
+        print("VIP + BACKSTAGE One Day Pass :",backstageoneday)
+        print("======================================")
         print("Jumlah tiket yang dibeli :",totaltiket)
         print("Harga yang harus dibayarkan :",totalharga)
-        print("==========================")
+        print("======================================")
 
         break 
 
